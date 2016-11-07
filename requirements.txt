@@ -1,0 +1,5 @@
+beautifulsoup4==4.5.1
+pync==1.6.1
+python-dateutil==2.5.3
+selenium==3.0.1
+six==1.10.0
