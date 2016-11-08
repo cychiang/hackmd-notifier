@@ -14,7 +14,7 @@ alarm = args.alarm
 
 """@bref open webdriver to parse information from hackmd.io
 """
-browser = webdriver.Chrome()
+browser = webdriver.Chrome('/usr/local/bin/chromedriver')
 browser.get(link)
 html = browser.page_source
 
