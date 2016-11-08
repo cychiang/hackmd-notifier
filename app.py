@@ -8,9 +8,11 @@ from pync import Notifier
 parser = argparse.ArgumentParser(description='hackmd-notifier: monitoring specific page.')
 parser.add_argument('--link', help='hackmd.io web address')
 parser.add_argument('--alarm', help='keyword to activate notifier')
+parser.add_argument('--quize', help='keyword to activate notifier')
 args = parser.parse_args()
 link = args.link
 alarm = args.alarm
+quize = args.quize
 
 """@bref open webdriver to parse information from hackmd.io
 """
@@ -31,6 +33,10 @@ for br in soup.findAll('br'):
         text = str(next).strip()
         if text:
             if text == alarm:
+                Notifier.notify('Something happened on hackmd.io: {}'.format(link),
+                    title='hackmd.io'
+                )
+            if text == quize:
                 Notifier.notify('Something happened on hackmd.io: {}'.format(link),
                     title='hackmd.io'
                 )
